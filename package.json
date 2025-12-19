@@ -7,9 +7,9 @@
   },
   "scripts": {
     "start": "backstage-cli repo start",
-    "build:backend": "yarn workspace backend build",
+    "build:backend": "pnpm workspace backend build",
     "build:all": "backstage-cli repo build --all",
-    "build-image": "yarn workspace backend build-image",
+    "build-image": "pnpm workspace backend build-image",
     "tsc": "tsc",
     "tsc:full": "tsc --skipLibCheck false --incremental false",
     "clean": "backstage-cli repo clean",
@@ -32,8 +32,10 @@
     "@backstage/cli": "^0.35.0",
     "@backstage/e2e-test-utils": "^0.1.1",
     "@jest/environment-jsdom-abstract": "^30.0.0",
+    "@module-federation/enhanced": "^0.21.6",
     "@playwright/test": "^1.32.3",
     "@types/jest": "^30.0.0",
+    "isolated-vm": "5.0.4",
     "jest": "^30.2.0",
     "jsdom": "^27.1.0",
     "node-gyp": "^10.0.0",
@@ -54,5 +56,27 @@
       "prettier --write"
     ]
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "pnpm@10.26.1",
+  "pnpm": {
+    "overrides": {
+      "isolated-vm": "5.0.4"
+    },
+    "ignoredBuiltDependencies": [],
+    "onlyBuiltDependencies": [
+      "isolated-vm",
+      "@scarf/scarf",
+      "@swc/core",
+      "@tree-sitter-grammars/tree-sitter-yaml",
+      "better-sqlite3",
+      "core-js",
+      "core-js-pure",
+      "cpu-features",
+      "esbuild",
+      "protobufjs",
+      "ssh2",
+      "tree-sitter",
+      "tree-sitter-json",
+      "unrs-resolver"
+    ]
+  }
 }
