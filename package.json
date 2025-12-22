@@ -6,7 +6,7 @@
     "node": "22 || 24"
   },
   "scripts": {
-    "start": "backstage-cli repo start",
+    "start": "export $(grep -v '^#' .env | xargs) && backstage-cli repo start",
     "build:backend": "pnpm workspace backend build",
     "build:all": "backstage-cli repo build --all",
     "build-image": "pnpm workspace backend build-image",

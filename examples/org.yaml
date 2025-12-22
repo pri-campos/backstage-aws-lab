@@ -15,3 +15,14 @@ metadata:
 spec:
   type: team
   children: []
+---
+# GitHub
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: priscila-campos
+spec:
+  profile:
+    displayName: priscila-campos
+    email: priscila.campos@thoughtworks.com
+  memberOf: [guests]
