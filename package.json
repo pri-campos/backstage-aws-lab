@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "22 || 24"
+    "node": "22"
   },
   "scripts": {
     "start": "export $(grep -v '^#' .env | xargs) && backstage-cli repo start",

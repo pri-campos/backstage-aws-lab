@@ -12,6 +12,11 @@ backend:
   auth:
     keys:
       - secret: ${BACKEND_SECRET}
+    externalAccess:
+      - type: static
+        options:
+          token: ${CICD_TOKEN}
+          subject: cicd-system-completion-events
   baseUrl: http://localhost:7007
   listen:
     port: 7007
@@ -65,6 +70,9 @@ techdocs:
     runIn: 'docker' # Alternatives - 'local'
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
+
+techRadar:
+  url: https://github.com/pri-campos/backstage-governance-techradar-lab/blob/main/platform-tech-radar.json
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
