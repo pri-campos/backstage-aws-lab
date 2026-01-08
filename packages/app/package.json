@@ -10,10 +10,11 @@
     "start": "backstage-cli package start",
     "build": "backstage-cli package build",
     "clean": "backstage-cli package clean",
-    "test": "backstage-cli package test",
+    "test:whitebox": "backstage-cli package test -- --watchAll=false",
     "lint": "backstage-cli package lint"
   },
   "dependencies": {
+    "@backstage-community/plugin-tech-radar": "^1.13.0",
     "@backstage/app-defaults": "^1.7.3",
     "@backstage/catalog-model": "^1.7.6",
     "@backstage/cli": "^0.35.0",

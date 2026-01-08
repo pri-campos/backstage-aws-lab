@@ -140,3 +140,7 @@ vite.config.ts.timestamp-*
 
 # OS / system files
 .DS_Store
+
+# Playwright reports
+e2e-test-report/
+playwright-report/

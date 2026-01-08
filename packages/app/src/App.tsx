@@ -38,6 +38,7 @@ import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { NotificationsPage } from '@backstage/plugin-notifications';
 import { SignalsDisplay } from '@backstage/plugin-signals';
+import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
 
 const app = createApp({
   apis,
@@ -78,6 +79,15 @@ const app = createApp({
 
 const routes = (
   <FlatRoutes>
+    <Route
+      path="/tech-radar"
+      element={
+        <TechRadarPage
+          pageTitle="Tech Radar"
+          title="Radar de Tecnologia"
+          subtitle="Recomendações para decisões do time"
+        />}   
+    />
     <Route path="/" element={<Navigate to="catalog" />} />
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
