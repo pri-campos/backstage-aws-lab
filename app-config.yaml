@@ -15,7 +15,7 @@ backend:
     externalAccess:
       - type: static
         options:
-          token: ${CICD_TOKEN}
+          token: ${BACKEND_TEST_BEARER_TOKEN}
           subject: cicd-system-completion-events
   baseUrl: http://localhost:7007
   listen:
