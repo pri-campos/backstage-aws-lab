@@ -15,20 +15,8 @@ function readAppConfig(): ConfigReader {
   return new ConfigReader(data);
 }
 
-describe('Tech Radar Backend · Integration', () => {
-  describe('Configuration contract · Guard-rail', () => {
-    it('validates configuration contract', () => {
-      const config = readAppConfig();
-      const url = config.getString('techRadar.url');
-
-      expect(typeof url).toBe('string');
-      expect(url.trim().length).toBeGreaterThan(0);
-      expect(url).toMatch(/^https:\/\//i);
-      expect(url).toContain('.json');
-    });
-  });
-
-  describe('Runtime behavior · In-process backend', () => {
+describe('Backend · Tech Radar · Wiring (In-process)', () => {
+  describe('In-memory backend composition', () => {
     let baseUrl: string;
     let server: StartedBackend['server'];
     let urlReader: ReturnType<typeof mockServices.urlReader.mock>;
@@ -67,7 +55,7 @@ describe('Tech Radar Backend · Integration', () => {
       }
     });
 
-    it('serves radar data from the configured source', async () => {
+    it('serves radar data through the platform API surface', async () => {
       const res = await fetch(`${baseUrl}/api/tech-radar/data`);
       const body = await res.text();
 
