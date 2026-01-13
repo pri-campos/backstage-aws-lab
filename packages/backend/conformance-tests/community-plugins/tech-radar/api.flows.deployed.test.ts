@@ -18,7 +18,7 @@ function radarRequestWithAuth() {
     .withBearerToken(String(automationBearerToken));
 }
 
-describe('Tech Radar API · Integrated Flows', () => {
+describe('API · Tech Radar · Flows (Deployed)', () => {
   it('serves radar data for authenticated requests', async () => {
     await radarRequestWithAuth()
       .expectStatus(HTTP_OK)
@@ -32,7 +32,7 @@ describe('Tech Radar API · Integrated Flows', () => {
       })
   })
 
-  it('supports conditional requests using ETag caching', async () => {
+  it('supports conditional requests via ETag (If-None-Match)', async () => {
     const etag = await radarRequestWithAuth()
       .expectHeaderContains('etag', 'W/"')
       .returns((ctx) => ctx.res.headers['etag']);
